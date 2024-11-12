@@ -21,9 +21,13 @@ This repository implements a novel approach to optimize Visual Place Recognition
 You can find the full paper on [arXiv](https://arxiv.org/abs/2409.07834). Please cite our work as follows:
 
 ```bibtex
-@article{your_paper_citation,
-  title={Structured Pruning for Efficient Visual Place Recognition},
-  author={Your Names Here},
-  journal={arXiv preprint arXiv:2409.07834},
-  year={2024}
+@article{grainge2024structuredpruningefficientvisual,
+  title = {Structured Pruning for Efficient Visual Place Recognition},
+  author = {Oliver Grainge and Michael Milford and Indu Bodala and Sarvapali D. Ramchurn and Shoaib Ehsan},
+  journal = {arXiv preprint arXiv:2409.07834},
+  year = {2024},
+  eprint = {2409.07834},
+  archivePrefix = {arXiv},
+  primaryClass = {cs.CV},
+  url = {https://arxiv.org/abs/2409.07834}
 }
