@@ -1,0 +1,69 @@
+# Desktop
+#datasets_directory: "/home/oliver/Documents/github/Datasets"
+#weights_directory: "/home/oliver/Documents/github/VisualLoc_Weights"
+# Laptop
+weights_directory: "/Users/olivergrainge/Documents/github/VisualLoc_Weights"
+datasets_directory: "/Users/olivergrainge/Documents/github/Datasets"
+#HPC
+#datasets_directory: "/scratch/oeg1n18/datasets"
+#weights_directory: "/scratch/oeg1n18/VisualLoc_Weights"
+
+
+#####################################################################################################################################################
+################################################               RUN CONFIGURATION          #####################################################
+#####################################################################################################################################################
+  
+run: 
+  datasets: ["Pitts30k"]
+  methods: ["MixVPR"]
+  num_workers: 16
+  pin_memory: False
+  batchsize: 168
+  device: "cuda"
+
+eval: 
+  datasets: ["pitts30k"]
+  methods: ["MixVPR"]
+  partition: "test"
+  device: "cpu"
+  metrics: ["recall@1", "recall@5"]
+  distance: "cosine" # either l2 or cosine
+
+train:
+  debug: False
+  training_method: "gsv_cities_structured_sparse"
+  method: "ResNet34_MixVPR"
+  image_resolution: [320, 320]
+  enable_progress_bar: False
+  eval_distance: "cosine"
+  finetune: False
+  checkpoint: False
+  num_workers: 16
+
+  # optimization
+  optimizer: "adam"
+  max_epochs: 30
+  batch_size: 32
+  lr: 0.0002
+  weight_decay: 0
+  momentum: 0.9
+  warmup_steps: 2
+  milestones: 1 2 3 4 5
+  lr_mult: 0.3
+  loss_name: "MultiSimilarityLoss"
+  miner_name: "MultiSimilarityMiner"
+  miner_margin: 0.1
+
+  # Pruning
+  pruning_type: "magnitude"
+  final_sparsity: 0.75
+  aggregation_pruning_rate: 2.0
+  initial_sparsity: 0.0
+  pruning_schedule: "linear"
+  pruning_freq: 2
+
+
+  
+
+
+
