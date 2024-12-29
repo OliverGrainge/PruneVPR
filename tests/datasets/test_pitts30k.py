@@ -1,5 +1,6 @@
 import pytest
 from PlaceRec.Datasets.pitts30k import Pitts30k_Val, Pitts30k_Test
+from torchvision import transforms
 
 # Create a fixture to reuse the dataset instance
 @pytest.fixture(scope="module")
@@ -54,13 +55,15 @@ def test_pitts30k_test_paths_lengths(pitts_dataset_test):
 
 
 def test_pitts30k_test_query_loader(pitts_dataset_test):
-    dataloader = pitts_dataset_test.query_images_loader(batch_size=3, shuffle=False, pin_memory=False, num_workers=0)
+    preprocess = transforms.Compose([transforms.ToTensor()])
+    dataloader = pitts_dataset_test.query_images_loader(batch_size=3, shuffle=False, pin_memory=False, num_workers=0, preprocess=preprocess)
     for batch in dataloader:
         break 
     assert len(batch[0]) == 3
 
 def test_pitts30k_test_map_loader(pitts_dataset_test):
-    dataloader = pitts_dataset_test.map_images_loader(batch_size=3, shuffle=False, pin_memory=False, num_workers=0)
+    preprocess = transforms.Compose([transforms.ToTensor()])
+    dataloader = pitts_dataset_test.map_images_loader(batch_size=3, shuffle=False, pin_memory=False, num_workers=0, preprocess=preprocess)
     for batch in dataloader:
         break 
     assert len(batch[0]) == 3
