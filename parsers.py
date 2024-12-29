@@ -215,30 +215,6 @@ def train_arguments():
         "--pruning_freq", type=int, default=config["train"]["pruning_freq"]
     )
 
-    parser.add_argument(
-        "--teacher_method", type=str, default=config["train"]["teacher_method"]
-    )
-
-    parser.add_argument(
-        "--metric_loss_factor",
-        type=float,
-        default=config["train"]["metric_loss_factor"],
-    )
-
-    parser.add_argument(
-        "--teacher_resolution",
-        type=int,
-        default=config["train"]["teacher_resolution"],
-        nargs="+",
-    )
-
-    parser.add_argument(
-        "--kd_loss_name", type=str, default=config["train"]["kd_loss_name"]
-    )
-
-    parser.add_argument(
-        "--kd_loss_factor", type=float, default=config["train"]["kd_loss_factor"]
-    )
 
     parser.add_argument(
         "--eval_distance", type=str, default=config["train"]["eval_distance"]
@@ -246,3 +222,15 @@ def train_arguments():
 
     args = parser.parse_args()
     return args
+
+
+if __name__ == "__main__":
+    run_args = run_arguments()
+    eval_args = eval_arguments()
+    rain_args = train_arguments()
+    print("======================= run args =====================")
+    print(run_args)
+    print("======================= eval args =====================")
+    print(eval_args)
+    print("======================= train args =====================")
+    print(rain_args)

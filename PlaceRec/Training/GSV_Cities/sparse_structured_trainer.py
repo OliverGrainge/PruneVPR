@@ -4,8 +4,7 @@ import pytorch_lightning as pl
 import torch
 import torch.nn as nn
 import torch_pruning as tp
-from pytorch_lightning.callbacks import (EarlyStopping, ModelCheckpoint,
-                                         ModelPruning)
+from pytorch_lightning.callbacks import EarlyStopping, ModelCheckpoint, ModelPruning
 from pytorch_lightning.loggers import WandbLogger
 from sklearn.cluster import KMeans
 from torch.optim import lr_scheduler
@@ -13,10 +12,10 @@ from torch.optim.lr_scheduler import LambdaLR, _LRScheduler
 from torch.optim.optimizer import Optimizer
 
 import PlaceRec.Training.GSV_Cities.utils as utils
-from PlaceRec.Training.GSV_Cities.dataloaders.GSVCitiesDataloader import \
-    GSVCitiesDataModule
-from PlaceRec.Training.GSV_Cities.sparse_utils import (get_cities,
-                                                       pruning_schedule)
+from PlaceRec.Training.GSV_Cities.dataloaders.GSVCitiesDataloader import (
+    GSVCitiesDataModule,
+)
+from PlaceRec.Training.GSV_Cities.sparse_utils import get_cities, pruning_schedule
 from PlaceRec.utils import get_config, get_method
 
 config = get_config()
