@@ -4,4 +4,8 @@
 *checkpoints/
 *archive/
 *bin/
-
+__pycache__/
+*.pyc
+*scratch.py
+*scripts/
+.DS_Store
