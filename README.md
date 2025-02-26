@@ -4,7 +4,7 @@ This repository will host the source code and models for the paper:
 
 **[Structured Pruning for Efficient Visual Place Recognition](https://arxiv.org/abs/2409.07834)**
 
-Authors: [Your Names Here]
+Authors: Oliver Grainge1, Michael Milford, Indu Bodala, Sarvapali D. Ramchurn and Shoaib Ehsan
 
 ## Introduction
 
